@@ -4,6 +4,9 @@ Python3 demo code to receive and send CAN signals.
 # Install and configure
 
 # Log into CAN board and run below command
+sudo apt install python3-pip
+# Allow pip3 install packages in system dir
+sudo mv /usr/lib/python3.11/EXTERNALLY-MANAGED /usr/lib/python3.11/EXTERNALLY-MANAGED.bak
 sudo pip3 install cantools
 
 # configure can0 interface
