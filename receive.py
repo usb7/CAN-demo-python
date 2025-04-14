@@ -45,5 +45,9 @@ Example:
 
 	while True:
 		can_message = can_bus.recv()
-		pprint(can_db.decode_message(can_message.arbitration_id, can_message.data))
+		try:
+			msg = can_db.decode_message(can_message.arbitration_id, can_message.data)
+			pprint(msg)
+		except KeyError:
+			print(f"{can_message.arbitration_id} [{can_message.dlc}] " + ' '.join(f'{byte:02X}' for byte in can_message.data))
 		print("")
